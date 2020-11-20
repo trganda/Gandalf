@@ -1,0 +1,52 @@
+{{- $profile := .Site.Params.home.profile -}}
+<div class="home-wrap">
+    <div class="home-profile-inner">
+        {{- $avatar := $profile.avatarURL -}}
+        {{- if $avatar -}}
+            <div class="home-avator">
+                <a href="/">
+                    <img src="{{ $avatar }}">
+                </a>
+            </div>
+        {{- end -}}
+
+        {{- with $profile.title -}}
+            <h1 class="home-title">
+                {{- . | safeHTML -}}
+            </h1>
+        {{- end -}}
+
+        {{- with $profile.subtitle -}}
+            <h2 class="home-subtilte">
+                {{- . -}}
+            </h2>
+        {{- end -}}
+
+        {{- if $profile.social -}}
+            <div class="home-links">
+                {{- $socialMap := resources.Get "data/social.toml" | transform.Unmarshal -}}
+                {{- $socialArr := slice -}}
+                {{- range $key, $value := .Site.Params.social -}}
+                    {{- $social := $key | lower | index $socialMap | default dict -}}
+                    {{- if $value -}}
+                        {{- $social = dict "identifer" . | merge $social -}}
+                        {{- $socialArr = $socialArr | append $social -}}
+                    {{- end -}}
+                {{- end -}}
+                {{- range sort $socialArr "weight" -}}
+                    {{- $id := .identifier | strings.TrimPrefix "/" | strings.TrimSuffix "/" -}}
+                    {{- $url := printf "%v%v" .prefix $id -}}
+                    <a href="" title="{{- $url -}}" target="_blank" rel="noopener noreffer me">    
+                        <i class="{{- .icon.class -}}"></i>
+                    </a>
+                {{- end -}}
+            </div>
+        {{- end -}}
+
+        {{- with $profile.disclaimer -}}
+            <h3 class="home-disclaimer">
+                {{- . | safeHTML -}}
+            </h3>
+        {{- end -}}
+    </div>
+</div>

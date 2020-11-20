@@ -1,0 +1,29 @@
+{{ define "main" }}
+    <div class="container-pages">
+        {{- $posts := .Site.Params.home.posts -}}
+        <div class="container-profile">
+            {{- /* Profile */ -}}        
+            {{- if ne .Site.Params.home.profile false -}}
+                {{- partial "components/profile.html" . -}}
+            {{- end -}}
+        </div>
+
+        <div class="container-summarys">
+            {{- /* Summary */ -}}
+            {{- if ne $posts.enable false | and .Site.RegularPages -}}
+                {{- $pages := where .Site.RegularPages "Type" "posts" -}}
+                {{- with $posts.paginate | default .Site.Params.paginate -}}
+                    {{- $pages = $.Paginate $pages . -}}
+                {{- else -}}
+                    {{- $pages = .Paginate $pages -}}
+                {{- end -}}
+                {{- range $pages.Pages -}}
+                    {{- .Render "summary" -}}
+                {{- end -}}
+
+                {{- /* Paginator */ -}}
+            {{- end -}}
+            <!-- {{- template "_internal/pagination.html" . -}} -->
+        </div>
+    </div>
+{{ end }}

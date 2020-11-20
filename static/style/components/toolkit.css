@@ -1,0 +1,92 @@
+.fab-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.fab-icon-holder {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #252627;
+    padding: .6rem .6rem;
+    /* box-shadow: 0 6px 20px #252627; */
+}
+
+.fab-icon-holder:hover i{
+    color: #a9a9b3;
+}
+
+.fab-options li .fab-icon-holder:hover+.fab-label{
+    opacity: 1;
+}
+
+.fab-icon-holder i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1rem;
+    color: #5d5d5f;
+}
+
+.fab-togger {
+    width: 1.5rem;
+    height: 1.5rem;
+    /* background: #3c4146; */
+    transition: all 0.3s ease;
+}
+
+.fab-togger i {
+    font-size: 1rem;
+}
+
+.fab-container:hover .fab-togger {
+    transform: rotate(-90deg);
+}
+
+.fab-options {
+    list-style-type: none;
+    /* margin: 0; */
+    position: absolute;
+    bottom: 2.6rem;
+    right: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: scale(0);
+    transform-origin: 85% bottom;
+}
+
+.fab-togger:hover+.fab-options,
+.fab-options:hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.fab-options li {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+}
+
+.fa-rocket {
+    transform: rotate(-45deg);
+}
+
+.fab-label {
+    padding: 2px 5px;
+    align-self: center;
+    user-select: none;
+    white-space: nowrap;
+    border-radius: 3px;
+    font-size: 1rem;
+    background: #666666;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}

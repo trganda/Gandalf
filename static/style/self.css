@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('default/baseof.css');
+@import url('default/index.css');
+@import url('components/toolkit.css');
+@import url('base/header.css');
+@import url('base/footer.css');
+@import url('components/profile.css');
+@import url('default/summary.css');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5rem;
+    width: 100%;
+}
+
+body {
+    background: #292a2d;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+a {
+    color: #a9a9b3;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #fff;
+}
+
+img {
+    border-style: none;
+}
+
+::-webkit-scrollbar {
+    width: .5rem;
+    height: .5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #87878d;
+}

@@ -1,0 +1,51 @@
+{{- $params := .Params | merge .Site.Params.page -}}
+
+<article class="summary" itemscope itemtype="http://schema.org/Article">
+    {{- /* Title */ -}}
+    <h1 class="summary-title" itemprop="name headline">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h1>
+
+    {{- /* Meta Data */ -}}
+    <div class="summary-meta">
+        {{- $author := $params.author | default .Site.Author.name | default ("Author") -}}
+        {{- $authorLink := $params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
+        <span class="post-meta-author">
+            <a href="{{- $authorLink -}}" target="_blank">
+                <i class="fas fa-user-secret fa-fw"></i>
+                {{- $author -}}
+            </a>
+        </span>
+
+        {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+            &nbsp;<span class="post-meta-publish">
+                {{- "Published on " | safeHTML -}}
+                {{- printf `<time datetime="%v">%v</time>` . . | safeHTML -}}
+            </span>
+        {{- end -}}
+
+        {{- range .Params.categories -}}
+            {{- $category := printf "/categories/%v" . | lower -}}
+            {{- $categories := printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category . -}}
+            &nbsp;<span>
+                {{- "Included in  " | safeHTML -}}
+                {{- $categories | safeHTML -}}
+            </span>
+        {{- end -}}
+    </div>
+
+
+    {{- /* Summary Content */ -}}
+    <div class="summary-content">
+        {{- with .Summary -}}
+            {{- . | safeHTML -}}
+        {{- else -}}
+            {{- .Description | safeHTML -}}
+        {{- end -}}
+    </div>
+
+    {{- /* Footer */ -}}
+    <div class="summary-footer">
+        <a href="{{ .RelPermalink }}">{{ "Read More" }}</a>
+    </div>
+</article>

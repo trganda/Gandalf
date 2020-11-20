@@ -1,0 +1,132 @@
+header {
+    width: 100%;
+    z-index: 150;
+    transition: box-shadow 0.3s ease;
+    background: #252627;
+}
+
+/* Desktop header */
+#header-desktop {
+    display: block;
+    position: fixed;
+    height: 3.5rem;
+    line-height: 3.5rem;
+}
+
+.desktop .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 2rem 0 10vh;
+}
+
+@media screen and (max-width: 1200px) {
+    #header-desktop .header-wrapper {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+.desktop .header-wrapper .header-title {
+    font-weight: bold;
+    text-overflow: ellipsis;
+    margin-right: .5rem;
+    min-width: 10%;
+    height: 3.5rem;
+    overflow: hidden;
+    flex: 10;
+    cursor: pointer;
+}
+
+.desktop .header-wrapper .header-title a {
+    font-weight: 400;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.desktop .header-wrapper .header-menu {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.desktop .header-wrapper .header-menu .header-menu-inner {
+    float: right;
+}
+
+.desktop .header-wrapper .header-menu .header-menu-inner .header-menu-item {
+    margin: 0 .5rem;
+    position: relative;
+}
+
+#header-mobile {
+    display: none;
+    height: 3.5rem;
+    position: fixed;
+    line-height: 3.5rem;
+}
+
+@media only screen and (max-width: 680px) {
+    #header-mobile{
+        display: block;
+    }
+    #header-desktop {
+        display: none;
+    }
+}
+
+.mobile .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.mobile .header-wrapper .header-title a {
+    font-weight: 400;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    /* border-bottom: 1px; */
+}
+
+.mobile .header-wrapper .menu-toggle {
+    color: #a9a9b3;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile .header-menu {
+    display: none;
+    position: fixed;
+    top: 3.5rem;
+    width: 100%;
+    box-shadow:  0.125rem 0.25rem rgba(0,0,0,0.1);
+    border-top: 2px solid #363636;
+    /* border-top-color: #363636; */
+    background: #252627;
+    padding-top: .5rem;
+    text-align: center;
+}
+
+.mobile .header-menu.active {
+    display: block;
+}
+
+.mobile .header-menu .header-menu-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile .header-menu .header-menu-inner a {
+    display: block;
+    width: 100%;
+    line-height: 2.5rem;
+    position: relative;
+}

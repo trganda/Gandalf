@@ -1,0 +1,12 @@
+{{- $href := .Source -}}
+{{- $resource := resources.Get $href -}}
+
+{{- if $resource -}}
+    {{- with .ToCSS -}}
+        {{- $options := . | merge (dict "outputStyle" "compressed") -}}
+        {{- $resource = $resource | toCSS $options -}}
+    {{- end -}}
+    {{- $href = $resource.RelPermalink -}}
+{{- end -}}
+
+<link rel="stylesheet" href="{{- $href -}}">

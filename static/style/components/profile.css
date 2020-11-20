@@ -1,0 +1,43 @@
+.home-wrap {
+    position: fixed;
+    margin-left: 1.5rem;
+    margin-top: .9rem;
+    border-radius: .6rem;
+    background: #252627;
+    width: 280px;
+}
+
+.home-profile-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+}
+
+.home-avator {
+    /* padding: .5rem; */
+    padding: 1.5rem 0;
+
+}
+
+.home-avator a img {
+    width: 6rem;
+    text-align: center;
+    border-radius: 100%;
+    box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
+    transition: all 0.5s ease;
+}
+
+.home-avator a img:hover {
+    transform: translateY(-1rem);
+}
+
+.home-links {
+    padding: .5rem;
+    font-size: 1.5rem;
+}
+
+.home-links a {
+    margin: 0 .1rem;
+}

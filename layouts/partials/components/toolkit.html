@@ -1,0 +1,25 @@
+<div class="fab-container">
+    <div class="fab-togger fab-icon-holder">
+        <!-- <i class="fas fa-alt-v"></i> -->
+        <i class="fas fa-arrows-alt"></i>
+    </div>
+
+    <ul class="fab-options">
+        {{- range .Site.Params.toolkit.menu -}}
+            {{- $url := .url | relLangURL -}}
+            <li>
+                <div class="fab-icon-holder">
+                    {{- if $url -}}
+                        <a class="header-menu-item" href="{{ $url }}" rel="noopener noreffer" target="_self">
+                            <i class="fas {{ .icon }}"></i>
+                        </a>
+                    {{- end -}}
+                </div>
+                <span class="fab-label">{{- .name | safeHTML -}}</span>
+            </li>
+        {{- end -}}
+
+    </ul>
+</div>
+
+</div>

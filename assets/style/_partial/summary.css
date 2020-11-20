@@ -1,0 +1,42 @@
+.summary {
+    padding-top: 1rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px dashed #363636;
+}
+
+.summary .summary-title {
+    margin-bottom: .5rem;
+}
+
+.summary .summary-meta {
+    color: #5d5d5f;
+    font-size: .875rem;
+}
+
+.summary .summary-meta .post-meta-author a {
+    font-size: 1.05rem;
+}
+
+.summary .summary-content {
+    color: #5d5d5f;
+    overflow: hidden;
+    margin-top: .3rem;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.summary .summary-footer {
+    margin-top: .4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .875rem;
+}
+
+.summary .summary-footer a {
+    color: #55bde2;;
+}

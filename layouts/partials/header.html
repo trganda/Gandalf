@@ -1,0 +1,48 @@
+{{- /* Desktop header */ -}}
+<header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
+                {{- .Site.Title -}}
+            </a>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                {{- range .Site.Menus.main -}}
+                    {{- $url := .URL | relLangURL -}}
+                    <a class="header-menu-item" href="{{ $url }}" rel="noopener noreffer" target="_self">
+                        {{- .Name -}}
+                    </a>
+                {{- end -}}
+                <span class="header-menu-item delimiter"></span>
+                <span class="header-meanu-item search"></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+{{- /* Mobile header */ -}}
+<header class="mobile" id="header-mobile">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="{{ .Site.Home.RelPermalink }}" title="{{ .Site.Title }}">
+                {{- .Site.Title -}}
+            </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu-toggle">
+            <i class="fas fa-bars fa-fw"></i>
+        </div>
+    </div>
+    <div class="header-menu" id="mobile-header-menu">
+        <div class="header-menu-inner">
+            {{- range .Site.Menus.main -}}
+                {{- $url := .URL | relLangURL -}}
+                <a class="header-menu-item" href="{{ $url }}" rel="noopener noreffer" target="_self">
+                    {{- .Name -}}
+                </a>
+            {{- end -}}
+            <span class="header-menu-item delimiter"></span>
+            <span class="header-meanu-item search"></span>
+        </div>
+    </div>
+</header>

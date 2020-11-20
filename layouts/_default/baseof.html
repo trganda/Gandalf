@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+
+{{- partial "head.html" . -}}
+
+<body>
+    <div class="wrapper">
+        {{- partial "header.html" . -}}
+        <main class="main">
+            <div class="container">
+                {{- block "main" . }}{{- end }}
+            </div>
+        </main>
+        {{- partial "footer.html" . -}}
+    </div>
+    
+    {{- if (and (isset .Site.Params.toolkit "enable") (.Site.Params.toolkit.enable)) -}}
+        {{- partial "components/toolkit.html" . -}}
+    {{- end -}}
+
+    {{- partial "assets/assets.html" . -}}
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+# 001: Github
+[github]
+    weight = 1
+    prefix = "https://github.com/"
+    title = "GitHub"
+    [github.icon]
+        class = "fab fa-github-alt fa-fw"
+
+# 002: LinkedIn
+[linkedin]
+    weight = 2
+    prefix = "https://linkedin.com/in/"
+    title = "LinkedIn"
+    [linkedin.icon]
+        class = "fab fa-linkedin fa-fw"
+
+# 003: Twitter
+[twitter]
+    weight = 3
+    prefix = "https://twitter.com/"
+    title = "Twitter"
+    [twitter.icon]
+        class = "fab fa-twitter fa-fw"
+
+# 004: Facebook
+[facebook]
+    weight = 4
+    prefix = "https://facebook.com/"
+    title = "Facebook"
+    [facebook.icon]
+        class = "fab fa-facebook fa-fw"
+
+# 005: GitLab
+[gitlab]
+    weight = 5
+    prefix = "https://gitlab/com/"
+    title = "GitLab"
+    [gitlab.icon]
+        class = "fab fa-gitlab fa-fw"
+
+# 006: Reddit
+[reddit]
+    weight = 6
+    prefix = "https://www.reddit.com/user/"
+    title = "Reddit"
+    [reddit.icon]
+        class = "fab fa-reddit-alien fa-fw"
+
+# 007: Weibo
+[weibo]
+    weight = 7
+    prefix = "https://weibo.com/"
+    title = "Weibo"
+    [weibo.icon]
+        class = "fab fa-weibo fa-fw"
+
+# 008: Steam
+[steam]
+    weight = 8
+    prefix = "https://steamcommunity.com/id/"
+    title = "Steam"
+    [steam.icon]
+        class = "fab fa-steam fa-fw"
