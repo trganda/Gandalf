@@ -4,10 +4,10 @@
 
 <link rel="canonical" href="{{ .Permalink }}"/>
 <link rel="stylesheet" href="lib/fontawesome/all.css">
-<link rel="stylesheet" href="style/self.css">
+
 
 {{- /* Main Style */ -}}
-{{- $style := dict "Source" "style/self.css" -}}
-{{- $options := dict "targetPath" "css/style.min.css" "enableSourceMap" false -}}
+{{- $style := dict "Source" "style/style.scss" -}}
+{{- $options := dict "targetPath" "css/style.min.css" "enableSourceMap" true -}}
 {{- $style = dict "ToCSS" $options | merge $style -}}
 {{- partial "plugins/style.html" $style -}}
