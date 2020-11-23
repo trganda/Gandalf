@@ -7,11 +7,13 @@ html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 16px;
+    // font-size: 26.6667vw;
     line-height: 1.5rem;
     width: 100%;
 }
 
 body {
+    font-size: 16px;
     background: #292a2d;
     overflow-wrap: break-word;
     word-wrap: break-word;

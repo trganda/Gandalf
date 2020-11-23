@@ -1,4 +1,5 @@
 window.onload = (() => {
+    // Openning menu while using mobil device
     let mobile_menu_toggle = document.getElementById('mobile-menu-toggle');
     let mobile_menu = document.getElementById('mobile-header-menu');
 
