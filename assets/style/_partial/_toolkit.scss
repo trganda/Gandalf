@@ -4,6 +4,55 @@
     right: 50px;
     z-index: 999;
     cursor: pointer;
+
+    .fab-togger {
+        width: 50px;
+        height: 50px;
+        transition: all 0.4s ease;
+    }
+
+    .fab-togger:hover+.fab-options,
+    .fab-options:hover {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .fab-options {
+        list-style-type: none;
+        position: absolute;
+        bottom: 50px;
+        right: 0;
+        opacity: 0;
+        transition: all 0.5s ease;
+        transform: scale(0);
+        transform-origin: 85% bottom;
+    
+        li {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            padding-bottom: 8px;
+    
+            .fab-icon-holder:hover+.fab-label {
+                opacity: 1;
+            }
+    
+            .fab-label {
+                padding: 2px 5px;
+                align-self: center;
+                user-select: none;
+                white-space: nowrap;
+                border-radius: 3px;
+                font-size: 1rem;
+                background: #666666;
+                color: #ffffff;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+                margin-right: 10px;
+                opacity: 0;
+                transition: all 0.5s ease-in-out;
+            }
+        }
+    }
 }
 
 .fab-icon-holder {
@@ -11,74 +60,25 @@
     height: 50px;
     border-radius: 100%;
     background: #252627;
-}
 
-.fab-icon-holder i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-size: 18px;
-    color: #5d5d5f;
+    i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        font-size: 18px;
+        color: #5d5d5f;
+    }
 }
 
 .fab-icon-holder:hover i{
     color: #a9a9b3;
 }
 
-.fab-options li .fab-icon-holder:hover+.fab-label{
-    opacity: 1;
-}
-
-.fab-togger {
-    width: 50px;
-    height: 50px;
-    transition: all 0.4s ease;
-}
-
 .fab-container:hover .fab-togger{
     transform: rotate(-90deg);
 }
 
-.fab-options {
-    list-style-type: none;
-    position: absolute;
-    bottom: 50px;
-    right: 0;
-    opacity: 0;
-    transition: all 0.5s ease;
-    transform: scale(0);
-    transform-origin: 85% bottom;
-}
-
-.fab-togger:hover+.fab-options,
-.fab-options:hover {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.fab-options li {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    padding-bottom: 8px;
-}
-
 .fa-rocket {
     transform: rotate(-45deg);
-}
-
-.fab-label {
-    padding: 2px 5px;
-    align-self: center;
-    user-select: none;
-    white-space: nowrap;
-    border-radius: 3px;
-    font-size: 1rem;
-    background: #666666;
-    color: #ffffff;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    margin-right: 10px;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
 }

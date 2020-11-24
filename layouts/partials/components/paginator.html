@@ -1,0 +1,35 @@
+{{- if gt .Paginator.TotalPages 1 -}}
+    <div class="paginator">
+        <ul class="paginator-list">
+            {{- $showEllipse := false -}}
+            {{- /* Wherether show the '...' before this loop */ -}}
+            {{- $showedEllipse := false -}}
+            {{- range $.Paginator.Pagers -}}
+                {{- $rightDistance := sub .TotalPages .PageNumber -}}
+                {{- /* Is the first or last pagers */ -}}
+                {{- $showNumber := or (le .PageNumber 1) (eq $rightDistance 0) -}}
+                {{- $showNumber = or $showNumber (and (gt .PageNumber (sub $.Paginator.PageNumber 3)) (lt .PageNumber (add $.Paginator.PageNumber 3))) -}}
+                {{- if $showNumber -}}
+                    {{- $showEllipse = false -}}
+                    {{- $showedEllipse = false -}}
+                {{- else -}}
+                    {{- $showEllipse = not $showedEllipse -}}
+                    {{- $showedEllipse = true -}}
+                {{- end -}}
+                {{- if $showNumber -}}
+                    <li class="paginator-item paginator-before">
+                        <span class="paginator-link">
+                            <a href="{{- .URL -}}">
+                                {{- .PageNumber -}}
+                            </a>
+                        </span>
+                    </li>
+                {{- else if $showEllipse -}}
+                    <li class="paginator-item">
+                        <span class="paginator-link" aria-hidden="true">&hellip;</span>
+                    </li>
+                {{- end -}}
+            {{- end -}}
+        </ul>
+    </div>
+{{- end -}}

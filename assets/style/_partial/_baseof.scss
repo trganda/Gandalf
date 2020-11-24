@@ -3,13 +3,13 @@
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
-}
 
-.wrapper main {
-    flex: 1 0 auto;
-    display: block;
-}
+    main {
+        flex: 1 0 auto;
+        display: block;
 
-.wrapper main .container {
-    padding: 0 1rem;
+        .container {
+            padding: 0 16px;
+        }
+    }
 }
