@@ -1,0 +1,24 @@
+.container-post {
+    display: block;
+    padding-top: 72px;
+    margin: 0 auto;
+    width: 60%;
+
+    .toc {
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 160px;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+        padding: 0 12px;
+        border-left: 4px solid #363636;
+    }
+
+    .post {
+        position: relative;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}

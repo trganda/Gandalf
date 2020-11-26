@@ -1,4 +1,59 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{ .Content }}
+    <div class="container-post">
+        {{- $params := .Site.Params -}}
+        {{- /* Auto TOC */ -}}
+        {{- $toc := $params.page.toc | default (dict "enable" false) -}}
+        {{- if ne $toc.enable false -}}
+            <div class="toc" id="toc-auto">
+                <h2 class="toc-title">CONTENTS</h2>
+                <div class="toc-content">
+                    {{- .TableOfContents -}}
+                </div>
+            </div>
+        {{- end -}}
+
+        <article class="post">
+            {{- /* Title */ -}}
+            <h1 class="post-title">{{ .Title }}</h1>
+            
+            {{- /* Meta Data */ -}}
+            <div class="post-meta">
+                <div class="post-meta-line">
+                    {{- $author := $params.author | default .Site.Author.name | default ("Author") -}}
+                    {{- $authorLink := $params.link | default .Site.Author.link | default .Site.Home.RelPermalink -}}
+                    <span class="post-author">
+                        <a href="{{- $authorLink -}}" target="_blank">
+                            <i class="fas fa-user-secret fa-fw"></i>
+                            {{- $author -}}
+                        </a>
+                    </span>
+                    {{- range .Params.categories -}}
+                    {{- $category := printf "/categories/%v" . | lower -}}
+                    {{- $categories := printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category . -}}
+                    &nbsp;<span>
+                        {{- "Included in  " | safeHTML -}}
+                        {{- $categories | safeHTML -}}
+                    </span>
+                {{- end -}}
+                </div>
+                <div class="post-meta-line">
+                    {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+                        <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{- . -}}">{{- . -}}</time>
+                    {{- end -}}
+                    <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;<span>{{- .WordCount -}}{{- " words" | safeHTML -}}</span>&nbsp;
+                    <i class="far fa-clock fa-fw"></i>&nbsp;<span>{{- .ReadingTime -}}{{- " minutes" | safeHTML -}}</span>&nbsp;
+                </div>
+            </div>
+
+            {{- /* Static TOC */ -}}
+            {{- if ne $toc.enable false -}}
+
+            {{- end -}}
+
+            {{- /* Content */ -}}
+            <div class="post-content" id="content">
+                {{- .Content -}}
+            </div>
+        </article>
+    </div>
 {{ end }}

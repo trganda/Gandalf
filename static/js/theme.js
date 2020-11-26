@@ -6,4 +6,32 @@ window.onload = (() => {
     mobile_menu_toggle.onclick = (()=>{
         mobile_menu.classList.toggle('active');
     });
+
+    // Auto Toc
+    const auto_toc = document.getElementById('toc-auto');
+    const post = document.getElementsByClassName('post')[0];
+    const rect = post.getBoundingClientRect();
+    // Attach the toc to the right of post content
+    auto_toc.style.left = `${rect.left + rect.width + 20}px`
+    auto_toc.style.maxWidth = `${rect.left - 20}px`;
+    auto_toc.style.visibility = "visible";
+    //
+    const headerHeight = document.getElementById('header-desktop').offsetHeight;
+    const topSpacing = 20 + headerHeight;
+    const minTocTop = auto_toc.offsetTop;
+    const minScrollTop = minTocTop - topSpacing;
+    const maxTocTop = 160;
+    const maxScrollTop = maxTocTop - topSpacing;
+    document.onmousewheel = (() => {
+        if (rect.offsetTop < minScrollTop) {
+            auto_toc.style.position = 'absolute';
+            auto_toc.style.top = `${minTocTop}px`;
+        } else if (rect.offsetTop > maxScrollTop) {
+            auto_toc.style.position = 'absolute';
+            auto_toc.style.top = `${maxTocTop}px`;
+        } else {
+            auto_toc.style.position = 'fixed';
+            auto_toc.style.top = `${topSpacing}px`;
+        }
+    })
 })

@@ -10,8 +10,10 @@
         font-size: 14px;
 
         .footer-line {
-            font-size: 15px;
-            font-weight: 500;
+            font: {
+                size: 15px;
+                weight: 500;
+            }
             width: 100%;
         }
     }
