@@ -38,7 +38,7 @@
                 </div>
                 <div class="post-meta-line">
                     {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
-                        <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{- . -}}">{{- . -}}</time>
+                        <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{- . -}}">{{- . -}}</time>&nbsp;
                     {{- end -}}
                     <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;<span>{{- .WordCount -}}{{- " words" | safeHTML -}}</span>&nbsp;
                     <i class="far fa-clock fa-fw"></i>&nbsp;<span>{{- .ReadingTime -}}{{- " minutes" | safeHTML -}}</span>&nbsp;
@@ -54,6 +54,9 @@
             <div class="post-content" id="content">
                 {{- .Content -}}
             </div>
+
+            {{- /* Footer */ -}}
+            {{- partial "components/single/footer.html" . -}}
         </article>
     </div>
 {{ end }}

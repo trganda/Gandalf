@@ -1,0 +1,36 @@
+{{- /* Footer of post content */ -}}
+
+<div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-modified">
+                <span>
+                    {{- with .Site.Params.dataformat | default "2006-01-02" | .Lastmod.Format -}}
+                        {{- printf "Updated on %v" . -}}
+                    {{- end -}}
+                </span>
+            </div>
+            <div class="post-info-license">
+                {{- with .Site.Params.footer.license -}}
+                    <span>
+                        {{- . | safeHTML -}}
+                    </span>
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+    <div class="post-nav">
+        {{- if .PrevInSection -}}
+            <a href="{{- .PrevInSection.Permalink -}}" class="prev" rel="prev" title="{{- .PrevInSection.Title -}}">
+                <i class="fas fa-angle-left fa-fw"></i>
+                {{- .PrevInSection.Title -}}
+            </a>
+        {{- end -}}
+        {{- if .NextInSection -}}
+            <a href="{{- .NextInSection.Permalink -}}" class="next" rel="next" title="{{- .NextInSection.Title -}}">
+                {{- .NextInSection.Title }}
+                <i class="fas fa-angle-right fa-fw"></i>
+            </a>
+        {{- end -}}
+    </div>
+</div>

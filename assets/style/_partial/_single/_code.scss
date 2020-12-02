@@ -1,0 +1,19 @@
+code {
+    display: inline-block;
+    max-width: 100%;
+    padding: 0 8px;
+    overflow-wrap: break-word;
+    line-break: anywhere;
+    font-size: 14px;
+    font-family: Source Code Pro,Menlo,Consolas,Monaco,monospace,system-ui,-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei UI,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #E74C3C;
+}
+
+pre {
+    margin: 0;
+    padding: 4px 0 4px 8px;
+    
+    code {
+        padding: 0;
+    }
+}

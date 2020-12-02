@@ -1,0 +1,96 @@
+.container-post {
+  display: block;
+  padding-top: 72px;
+  margin: 0 auto;
+  width: 60%;
+}
+.container-post .toc {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 160px;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  padding: 0 12px;
+  border-left: 4px solid #363636;
+}
+.container-post .toc .toc-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 14px 0;
+}
+@media only screen and (max-width: 960px) {
+  .container-post #toc-auto {
+    display: none;
+  }
+}
+.container-post .post {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+.container-post .post .post-title {
+  margin: 16px 0 8px;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 140%;
+}
+.container-post .post .post-meta {
+  margin: 0 0 16px;
+}
+.container-post .post .post-meta .post-meta-line {
+  color: #5d5d5f;
+  font-size: 14px;
+}
+.container-post .post .post-meta .post-meta-line .post-author {
+  font-size: 16px;
+}
+.container-post .post .post-footer {
+  margin-top: 48px;
+}
+.container-post .post .post-footer .post-info {
+  border-bottom: 1px solid #363636;
+  padding: 16px 0 5px;
+}
+.container-post .post .post-footer .post-info .post-info-line {
+  display: flex;
+  justify-content: space-between;
+}
+.container-post .post .post-footer .post-info .post-info-line .post-info-modified {
+  color: #5d5d5f;
+  font-size: 12px;
+}
+.container-post .post .post-footer .post-info .post-info-line .post-info-license {
+  color: #5d5d5f;
+  font-size: 12px;
+}
+.container-post .post .post-footer .post-nav {
+  margin-top: 16px;
+  display: block;
+}
+.container-post .post .post-footer .post-nav a {
+  transition: all 0.3s ease-out;
+  font-weight: 600;
+}
+.container-post .post .post-footer .post-nav a.prev {
+  float: left;
+}
+.container-post .post .post-footer .post-nav a.prev:hover {
+  transform: translateX(-4px);
+}
+.container-post .post .post-footer .post-nav a.next {
+  float: right;
+}
+.container-post .post .post-footer .post-nav a.next:hover {
+  transform: translateX(4px);
+}
+.container-post .post .post-footer .post-nav::before {
+  content: " ";
+  display: table;
+}
+.container-post .post .post-footer .post-nav::after {
+  content: " ";
+  display: table;
+}
