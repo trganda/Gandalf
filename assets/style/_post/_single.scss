@@ -56,6 +56,111 @@
 
         .post-content {
             @import '../_partial/_single/code';
+
+            > h2 {
+                font-size: 24px;
+
+                & code {
+                    font-size: 20px;
+                }
+            }
+
+            > h3 {
+                font-size: 22px;
+
+                & code {
+                    font-size: 18px;
+                }
+            }
+
+            > h4 {
+                font-size: 20px;
+
+                & code {
+                    font-size: 16px;
+                }
+            }
+
+            > h5 {
+                font-size: 18px;
+            }
+
+            > h6 {
+                font-size: 16px;
+            }
+
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-weight: bolder;
+                margin: 19px 0;
+            }
+
+            > h2,
+            > h3,
+            > h4,
+            > h5,
+            > h6 {
+                > .header-mark::before {
+                    content: "|";
+                    margin-right: 5px; 
+                }
+            }
+
+            > h2 > .header-mark::before {
+                content: "#";
+            }
+
+            p {
+                margin: 8px 0;
+            }
+
+            b, strong {
+                font-weight: bold;
+                color: #ddd;;
+            }
+
+            a {
+                overflow-wrap: break-word;
+                color: #55bde2;
+            }
+
+            a:hover {
+                color: #bdebfc;
+            }
+
+            ul, ol {
+                margin: 8px 0;
+                padding-left: 40px;
+            }
+
+            ul {
+                list-style-type: circle;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+
+                > table {
+                    width: 100%;
+                    max-width: 100%;
+                    margin: 10px 0;
+                    border-spacing: 0;
+                    background: #272C34;
+                    border-collapse: collapse;
+                }
+                
+                thead {
+                    background: #20252b;
+                }
+
+                th, td {
+                    padding: 5px 16px;
+                    border: 1px solid darken($color: #20252b, $amount: 2%);
+                }
+            }
         }
 
         .post-footer {

@@ -17,3 +17,24 @@ pre {
         padding: 0;
     }
 }
+
+code, pre, .highlight table, .highlight tr, .highlight td {
+    background: #272C34;
+}
+
+.highlight, .gist {
+    font-family: Source Code Pro,Menlo,Consolas,Monaco,monospace,system-ui,-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei UI,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+
+    .table-wrapper {
+        > table,
+        > table thead,
+        > table tr,
+        > table td {
+            margin: 0;
+            padding: 0;
+            border: none !important;
+            white-space: nowrap;
+        }
+    }
+}
