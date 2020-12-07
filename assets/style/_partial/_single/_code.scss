@@ -6,7 +6,7 @@ code {
     line-break: anywhere;
     font-size: 14px;
     font-family: Source Code Pro,Menlo,Consolas,Monaco,monospace,system-ui,-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei UI,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
-    color: #E74C3C;
+    color: #E5BF78;
 }
 
 pre {
@@ -38,3 +38,129 @@ code, pre, .highlight table, .highlight tr, .highlight td {
         }
     }
 }
+
+@import '../../_base/variables';
+
+.highlight {
+    line-height: 19.6px;
+    margin: 8px 0;
+
+    > .chroma {
+        position: relative;
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            width: 100%;
+            font-family: system-ui,-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei UI,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-weight: bold;
+            color: #b1b0b0;
+            background: #20252b;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            .code-title {
+                width: 100%;
+                padding: 6.4px;
+
+                > .arrow {
+                    padding: 0 3.2px;
+                    transition: transform 0.2s ease;
+                }
+            }
+
+            .code-title::after {
+                padding-left: 3px;
+                content: 'Code';
+            }
+        }
+
+        .lntd:first-child {
+            min-width: 24px;
+            text-align: right;
+        }
+
+        .lntd:last-child {
+            width: 100%;
+
+            pre {
+                min-width: max-content;
+            }
+        }
+
+        .ln {
+            padding-right: 12px;
+        }
+
+        .hl {
+            display: block;
+        }
+
+        .ln, .lnt {
+            color: #5d5d5f;
+        }
+
+        .ellipses {
+            padding: 6px;
+        }
+
+        .copy {
+            display: none;
+            padding: 6.4px;
+
+            &:hover {
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+
+        .table-wrapper {
+            max-height: 0;
+            overflow-y: hidden;
+            transition: max-height 0.8s cubic-bezier(0, 1, 0, 1) -0.1s;
+        }
+
+        &.open {
+            .code-header {
+                background: #1a1d23;
+            }
+
+            .table-wrapper {
+                max-height: 12000px;
+                transition: max-height 0.8s cubic-bezier(0.5, 0, 1, 0) 0s;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .ellipses {
+                display: none;
+            }
+
+            .copy {
+                display: inline;
+            }
+        }
+    }
+
+    /* Comment */  .c,
+    /* CommentHashbang */  .ch,
+    /* CommentMultiline */  .cm,
+    /* CommentSingle */  .c1,
+    /* CommentSpecial */  .cs,
+    /* CommentPreproc */  .cp,
+    /* CommentPreprocFile */  .cpf { font-style: italic }
+    /* GenericUnderline */  .gl { text-decoration: underline }
+
+    @each $class, $color in  $code-highlight-color-map-dark {
+        .#{$class} {
+            color: $color;
+        }
+    }
+}
+

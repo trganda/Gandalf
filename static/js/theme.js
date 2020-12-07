@@ -55,8 +55,8 @@ class Themes {
 
                 // Title of code space
                 const $title = document.createElement('span');
+                $title.insertAdjacentHTML('afterbegin', '<i class="arrow fas fa-chevron-right fa-fw"></i>');
                 $title.classList.add('code-title');
-                $title.insertAdjacentHTML('afterbegin', '<i class="arrow fas fa-chevron-right fa-fw></i>');
                 $title.addEventListener('click', () => {
                     $chroma.classList.toggle('open');
                 }, false);

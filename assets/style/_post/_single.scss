@@ -2,7 +2,7 @@
     display: block;
     padding-top: 72px;
     margin: 0 auto;
-    width: 60%;
+    width: 100%;
 
     .toc {
         display: block;
@@ -31,7 +31,7 @@
     .post {
         position: relative;
         max-width: 800px;
-        width: 100%;
+        width: 60%;
         margin: 0 auto;
 
         .post-title {
@@ -55,8 +55,6 @@
         }
 
         .post-content {
-            @import '../_partial/_single/code';
-
             > h2 {
                 font-size: 24px;
 
@@ -161,6 +159,13 @@
                     border: 1px solid darken($color: #20252b, $amount: 2%);
                 }
             }
+
+            img {
+                max-width: 100%;
+                min-height: 64px;
+            }
+
+            @import '../_partial/_single/code';
         }
 
         .post-footer {
@@ -223,4 +228,23 @@
             }
         }
     }
+
+    @media only screen and (max-width: 1440px) {
+        .post {
+            width: 56%;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .post {
+            width: 52%;
+        }
+    }
+
+    @media only screen and (max-width: 960px) {
+        .post {
+            width: 80%;
+        }
+    }
+
 }
