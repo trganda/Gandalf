@@ -1,7 +1,7 @@
 {{ define "main" }}
     <div class="container-pages">
         {{- $posts := .Site.Params.home.posts -}}
-        <aside class="container-profile">
+        <aside class="container-profile" id="profile-auto">
             {{- /* Profile */ -}}        
             {{- if ne .Site.Params.home.profile false -}}
                 {{- partial "components/profile.html" . -}}

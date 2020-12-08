@@ -4,7 +4,7 @@
     margin: 0 auto;
     width: 100%;
 
-    .toc {
+    > .toc {
         display: block;
         position: absolute;
         left: 0px;
@@ -20,6 +20,33 @@
             text-transform: uppercase;
             margin: 14px 0;
         }
+
+        .toc-content {
+            font-size: 16px;
+
+            ul {
+                text-indent: -13.6px;
+                padding-left: 12.8px;
+                list-style: none;
+            }
+
+            > nav {
+                > ul {
+                    margin: 10px 0;
+
+                    li {
+                        a {
+                            &::before {
+                                content: "|";
+                                font-weight: bolder;
+                                margin-right: 8px;
+                                color: #55bde2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @media only screen and (max-width: 960px) {
@@ -28,33 +55,33 @@
         }
     }
 
-    .post {
+    > .post {
         position: relative;
         max-width: 800px;
         width: 60%;
         margin: 0 auto;
 
-        .post-title {
+        > .post-title {
             margin: 16px 0 8px;
             font-size: 28px;
             font-weight: bold;
             line-height: 140%;
         }
 
-        .post-meta {
+        > .post-meta {
             margin: 0 0 16px;
 
-            .post-meta-line {
+            > .post-meta-line {
                 color: #5d5d5f;
                 font-size: 14px;
 
-                .post-author {
+                > .post-author {
                     font-size: 16px;
                 }
             }
         }
 
-        .post-content {
+        > .post-content {
             > h2 {
                 font-size: 24px;
 

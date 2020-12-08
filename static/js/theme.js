@@ -22,6 +22,8 @@ class Themes {
     constructor() {
         this.util = new Util();
         this.config = window.config;
+        this.resizeEventSet = new Set();
+        this.scrollEventSet = new Set();
         // this.data = this.config.data;
     }
 
@@ -30,6 +32,9 @@ class Themes {
             this.initToc();
             this.initMobileMenu();
             this.InitHighlight();
+            this.initProfile();
+            this.onResize();
+            this.onScroll();
         } catch (err) {
             console.error(err);
         }
@@ -101,21 +106,25 @@ class Themes {
     }
 
     initToc() {
+        const $tocCore = document.getElementById('TableOfContents');
+        if ($tocCore === null)
+            return;
         // Auto Toc
         const auto_toc = document.getElementById('toc-auto');
         const post = document.getElementsByClassName('post')[0];
         const rect = post.getBoundingClientRect();
-        // Attach the toc to the right of post content
+        // Attach the toc to the right side of post content
         auto_toc.style.left = `${rect.left + rect.width + 20}px`
         auto_toc.style.maxWidth = `${rect.left - 20}px`;
-        auto_toc.style.visibility = "visible";
-        window.addEventListener('resize', () => {
+        auto_toc.style.visibility = 'visible';
+
+        this._tocOnResize = (() => {
             let currentRect = post.getBoundingClientRect();
-            // Attach the toc to the right of post content
+            // Attach the toc automatically to the right side of post content
             auto_toc.style.left = `${currentRect.left + currentRect.width + 20}px`
             auto_toc.style.maxWidth = `${currentRect.left - 20}px`;
-            auto_toc.style.visibility = "visible";
-        }, false);
+        });
+        this.resizeEventSet.add(this._tocOnResize);
 
         // Keep toc follow the content
         const headerHeight = document.getElementById('header-desktop').offsetHeight;
@@ -126,7 +135,7 @@ class Themes {
         const maxTocTop = footerTop - auto_toc.getBoundingClientRect().height;
         const maxScrollTop = maxTocTop - topSpacing;
 
-        window.addEventListener('scroll', () => {
+        this._tocOnScroll = (() => {
             const currentScrollTop = (document.documentElement 
                 && document.documentElement.scrollTop) || document.body.scrollTop;
             if (currentScrollTop < minScrollTop) {
@@ -138,6 +147,69 @@ class Themes {
             } else {
                 auto_toc.style.position = 'fixed';
                 auto_toc.style.top = `${topSpacing}px`;
+            }
+        });
+        this.scrollEventSet.add(this._tocOnScroll);
+    }
+
+    initProfile() {
+        // Profile on the home page
+        const profile_aside = document.getElementById('profile-auto');
+        if (profile_aside === null)
+            return;
+        const summary = document.getElementsByClassName('container-summarys')[0];
+        const summary_rect = summary.getBoundingClientRect();
+        // Attach the profile to the right side of summary
+        profile_aside.style.left = `${summary_rect.left + summary_rect.width + 20}px`;
+        profile_aside.style.maxWidth = `${summary_rect.left - 20}px`;
+        profile_aside.style.visibility = 'visible';
+
+        this._profileOnResize = (() => {
+            let currentRect = summary.getBoundingClientRect();
+            // Attach the profile automatically to the right side of summary
+            profile_aside.style.left = `${currentRect.left + currentRect.width + 20}px`;
+            profile_aside.style.maxWidth = `${currentRect.left - 20}px`;
+        });
+        this.resizeEventSet.add(this._profileOnResize);
+
+        // Keep profile follow the summary
+        const headerHeight = document.getElementById('header-desktop').offsetHeight;
+        const footerTop = document.getElementsByClassName('footer')[0].offsetTop;
+        const topSpacing = 20 + headerHeight;
+        const minTocTop = profile_aside.offsetTop;
+        const minScrollTop = minTocTop - topSpacing;
+        const maxTocTop = footerTop - profile_aside.getBoundingClientRect().height;
+        const maxScrollTop = maxTocTop - topSpacing;
+
+        this._profileOnScroll = (() => {
+            const currentScrollTop = (document.documentElement 
+                && document.documentElement.scrollTop) || document.body.scrollTop;
+            if (currentScrollTop < minScrollTop) {
+                profile_aside.style.position = 'absolute';
+                profile_aside.style.top = `${minTocTop}px`;
+            } else if (currentScrollTop > maxScrollTop) {
+                profile_aside.style.position = 'absolute';
+                profile_aside.style.top = `${maxTocTop}px`;
+            } else {
+                profile_aside.style.position = 'fixed';
+                profile_aside.style.top = `${topSpacing}px`;
+            }
+        });
+        this.scrollEventSet.add(this._profileOnScroll);
+    }
+
+    onResize() {
+        window.addEventListener('resize', () => {
+            for (let event of this.resizeEventSet) {
+                event();
+            }
+        }, false);
+    }
+
+    onScroll() {
+        window.addEventListener('scroll', () => {
+            for (let event of this.scrollEventSet) {
+                event();
             }
         }, false);
     }
